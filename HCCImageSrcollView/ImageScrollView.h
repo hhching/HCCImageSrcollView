@@ -18,6 +18,6 @@
 @property(nonatomic,assign)id<ImageScrollViewDelegate> delegate;
 
 -(void)setImageArray:(NSArray*)imageArray;
--(ImageScrollView*)initWithFrame:(CGRect)frame ImageArray:(NSArray *)imgArr;
+-(ImageScrollView*)initWithFrame:(CGRect)frame;
 
 @end
