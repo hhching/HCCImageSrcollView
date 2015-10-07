@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "ImageScrollView.h"
+#define screen_width [UIScreen mainScreen].bounds.size.width
 
 @interface ViewController ()
 
@@ -16,7 +18,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    NSArray *_imgetestArray;
+    _imgetestArray=@[@"http://web.img.chuanke.com/fragment/2acf901944ab8a0029b552fdd33d6adc.jpg",@"http://web.img.chuanke.com/fragment/725cf5a88b0a6904799eac3d88791344.jpg",@"http://web.img.chuanke.com/fragment/edfbc5bcc2dbaa15fce9f9397caf8834.jpg",@"http://web.img.chuanke.com/fragment/800672cfcfedfd6c923bd5b5c0f68083.jpg"];
+    CGRect frame = CGRectMake(0, 64, screen_width, 150);
+    ImageScrollView *imageScrollView = [[ImageScrollView alloc] initWithFrame:frame];
+    [imageScrollView setImageArray:_imgetestArray];
+    [self.view addSubview:imageScrollView];
 }
 
 - (void)didReceiveMemoryWarning {
