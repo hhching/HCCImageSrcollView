@@ -47,7 +47,7 @@
         self.pageControl.currentPage = 0;
         self.pageControl.numberOfPages= 6;
         [self addSubview:self.pageControl];
-       // [self addTimer];
+        [self addTimer];
         
     }
     

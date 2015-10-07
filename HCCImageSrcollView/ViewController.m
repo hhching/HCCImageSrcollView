@@ -8,9 +8,10 @@
 
 #import "ViewController.h"
 #import "ImageScrollView.h"
+
 #define screen_width [UIScreen mainScreen].bounds.size.width
 
-@interface ViewController ()
+@interface ViewController ()<ImageScrollViewDelegate>
 
 @end
 
@@ -23,7 +24,18 @@
     CGRect frame = CGRectMake(0, 64, screen_width, 150);
     ImageScrollView *imageScrollView = [[ImageScrollView alloc] initWithFrame:frame];
     [imageScrollView setImageArray:_imgetestArray];
+    imageScrollView.delegate = self;
     [self.view addSubview:imageScrollView];
+}
+
+#pragma mark- ImageScrollViewDelegate
+-(void)didSelectImageAtIndex:(NSInteger)index
+{
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"" message:@"" delegate:self cancelButtonTitle:@"知道了～～" otherButtonTitles:nil];
+    alertView.title =@"回调";
+    alertView.message=[NSString stringWithFormat:@"我是第%i张图片",index];
+    [alertView show];
+    
 }
 
 - (void)didReceiveMemoryWarning {
